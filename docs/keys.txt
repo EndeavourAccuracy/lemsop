@@ -59,6 +59,7 @@ Arrow keys                           Select adjacent room.
 ELEMENTS SCREEN
 ---------------------------------------------------------------------------
 d                                    Start the level in Mednafen.
+g                                    Edit guard (if guard element).
 q (and Escape)                       Go to the main screen.
 r                                    Go to the room links screen.
 s                                    Save the level.

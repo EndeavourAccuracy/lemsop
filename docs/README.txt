@@ -10,11 +10,11 @@
 
 ===[1 - ABOUT]=================================================================
 
-lemsop v0.8b (May 2020)
-Copyright (C) 2019-2020 Norbert de Jonge <mail@norbertdejonge.nl>
+lemsop v1.0 (December 2022)
+Copyright (C) 2019-2022 Norbert de Jonge <nlmdejonge@gmail.com>
 
 A level editor of Prince of Persia for the Master System.
-The lemsop website can be found at [ https://www.norbertdejonge.nl/lemsop/ ].
+The lemsop website can be found at [ https://github.com/EndeavourAccuracy/lemsop ].
 
 ===[2 - LICENSE/DISCLAIMER]====================================================
 
@@ -37,7 +37,7 @@ Mednafen is © Mednafen Team, GPLv2+.
 
 My apoplexy level editor uses a similar GUI.
 Its instructional videos are available at:
-https://www.apoplexy.org/t/
+https://apoplexy.github.io/apoplexysite/
 
 ===[4 - THANKS]================================================================
 
@@ -47,7 +47,7 @@ David from the Princed forum, additional file documentation, including informati
 
 ===[5 - FEEDBACK]==============================================================
 
-If lemsop crashes, gets compilation errors or crashes while building, send an email to [ mail@norbertdejonge.nl ]. Make sure to describe exactly what actions triggered the bug and the precise symptoms of the bug. If possible, also include: 'uname -a', 'gcc -v', 'sdl2-config --version', and 'lemsop --version'.
+If lemsop crashes, gets compilation errors or crashes while building, send an email to [ nlmdejonge@gmail.com ]. Make sure to describe exactly what actions triggered the bug and the precise symptoms of the bug. If possible, also include: 'uname -a', 'gcc -v', 'sdl2-config --version', and 'lemsop --version'.
 
 ===[6 - DID YOU CREATE NEW LEVELS?]============================================
 
@@ -110,6 +110,7 @@ Go to: File->New->Project...
 Basic->Console Application
 C Project
 Name: lemsop
+Save lemsop.dev to the lemsop directory.
 
 Go to: Project->Remove From Project...
 Select main.c and press Delete.
@@ -132,10 +133,10 @@ In the Linker field, add:
 -l"SDL2_ttf.dll"
 
 Go to: Project->Project Options...->Directories
-Select the tab: Include Directories
-Add: C:\Program Files (x86)\Dev-Cpp\MinGW64\i686-w64-mingw32\include\SDL2
 Select the tab: Library Directories
 Add: C:\Program Files (x86)\Dev-Cpp\MinGW64\i686-w64-mingw32\lib
+Select the tab: Include Directories
+Add: C:\Program Files (x86)\Dev-Cpp\MinGW64\i686-w64-mingw32\include\SDL2
 
 Go to: Tools->Compiler Options...->Directories
 Select the tab: Binaries

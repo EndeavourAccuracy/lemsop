@@ -1,5 +1,6 @@
-/* lemsop v0.8b (May 2020)
- * Copyright (C) 2019-2020 Norbert de Jonge <mail@norbertdejonge.nl>
+/* SPDX-License-Identifier: GPL-3.0-or-later */
+/* lemsop v1.0 (December 2022)
+ * Copyright (C) 2019-2022 Norbert de Jonge <nlmdejonge@gmail.com>
  *
  * This program is free software: you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by the Free
@@ -65,8 +66,8 @@
 #define EXIT_NORMAL 0
 #define EXIT_ERROR 1
 #define EDITOR_NAME "lemsop"
-#define EDITOR_VERSION "v0.8b (May 2020)"
-#define COPYRIGHT "Copyright (C) 2020 Norbert de Jonge"
+#define EDITOR_VERSION "v1.0 (December 2022)"
+#define COPYRIGHT "Copyright (C) 2022 Norbert de Jonge"
 #define SMS_DIR "sms"
 #define BACKUP SMS_DIR SLASH "backup.bak"
 #define MAX_PATHFILE 300
@@ -719,7 +720,8 @@ void LoadLevel (int iLevel)
 		ReadFromFile (iFd, "", 2, sData);
 		if ((sData[0] != 0xC9) || (sData[1] != 0x60))
 		{
-			printf ("[ WARN ] 0x60C9 not found: 0x%02X%02X!\n", sData[1], sData[0]);
+			printf ("[ WARN ] Level %i, 0x60C9 not found: 0x%02X%02X!\n",
+				iLoopLevel, sData[1], sData[0]);
 		}
 
 		/*** Tile graphics. ***/
@@ -807,7 +809,8 @@ void LoadLevel (int iLevel)
 			} else {
 				if ((iLoopLevel != 14) || (iLoopRoom < 9))
 				{
-					printf ("[ WARN ] Incorrect elements offset!\n");
+					printf ("[ WARN ] Level %i: incorrect elements offset!\n",
+						iLoopLevel);
 				}
 				arOffsetsElements[iLoopRoom] = 0;
 			}
@@ -864,7 +867,7 @@ void LoadLevel (int iLevel)
 			iOffsetOld = iOffset;
 			iOffset = arOffsetsElements[iLoopRoom];
 			if (iOffset != iOffsetOld)
-				{ printf ("[ WARN ] Offset difference!\n"); }
+				{ printf ("[ WARN ] Level %i: offset difference!\n", iLoopLevel); }
 			lseek (iFd, iOffset, SEEK_SET);
 
 			iNextRoom = 0;
@@ -2361,7 +2364,7 @@ void InitScreen (void)
 					}
 					ShowScreen (iScreen);
 					break;
-				case SDL_KEYDOWN: /*** https://wiki.libsdl.org/SDL_Keycode ***/
+				case SDL_KEYDOWN: /*** https://wiki.libsdl.org/SDL2/SDL_Keycode ***/
 					switch (event.key.keysym.sym)
 					{
 						case SDLK_F1: if (iScreen == 1) { Help(); } break;
@@ -3476,19 +3479,19 @@ void ShowScreen (int iScreenS)
 /*****************************************************************************/
 {
 	char sLevel[MAX_TEXT + 2];
-	char arText[2 + 2][MAX_TEXT + 2];
+	char arText[9 + 2][MAX_TEXT + 2];
 	int iUnusedRooms;
 	int iXShow, iYShow;
 	char sShowRoom[MAX_TEXT + 2];
 	int iToRoom;
 	int iElem, iElemX, iElemY;
-	char arTextB1[1 + 2][MAX_TEXT + 2];
-	char arTextB2[1 + 2][MAX_TEXT + 2];
-	char arTextB3[1 + 2][MAX_TEXT + 2];
-	char arTextB4[1 + 2][MAX_TEXT + 2];
-	char arTextB5[1 + 2][MAX_TEXT + 2];
-	char arTextB6[1 + 2][MAX_TEXT + 2];
-	char arTextB7[1 + 2][MAX_TEXT + 2];
+	char arTextB1[9 + 2][MAX_TEXT + 2];
+	char arTextB2[9 + 2][MAX_TEXT + 2];
+	char arTextB3[9 + 2][MAX_TEXT + 2];
+	char arTextB4[9 + 2][MAX_TEXT + 2];
+	char arTextB5[9 + 2][MAX_TEXT + 2];
+	char arTextB6[9 + 2][MAX_TEXT + 2];
+	char arTextB7[9 + 2][MAX_TEXT + 2];
 	int iByte1, iByte2, iByte3, iByte4, iByte5;
 	char cDir;
 	SDL_Texture *img;
@@ -4645,7 +4648,7 @@ void CustomRenderCopy (SDL_Texture* src, char *sImageInfo, SDL_Rect* srcrect,
 void ShowPopUpSave (void)
 /*****************************************************************************/
 {
-	char arText[2 + 2][MAX_TEXT + 2];
+	char arText[9 + 2][MAX_TEXT + 2];
 
 	/*** faded background ***/
 	ShowImage (imgfaded, 0, 0, "imgfaded", ascreen, iScale, 1);
@@ -5127,7 +5130,7 @@ void ShowTile (int iRoom, int iRow, int iCol)
 	char sShowTile[MAX_TEXT + 2];
 	int iRowUse;
 	int iTile;
-	char arText[1 + 2][MAX_TEXT + 2];
+	char arText[9 + 2][MAX_TEXT + 2];
 
 	iRowUse = iRow;
 	iX = ((iCol - 1) * 32) + 25;
@@ -6551,7 +6554,7 @@ void Help (void)
 				case SDL_MOUSEMOTION:
 					iXPos = event.motion.x;
 					iYPos = event.motion.y;
-					if (InArea (55, 323, 55 + 443, 323 + 19) == 1) /*** URL ***/
+					if (InArea (55, 323, 55 + 430, 323 + 17) == 1) /*** URL ***/
 					{
 						SDL_SetCursor (curHand);
 					} else {
@@ -6572,8 +6575,8 @@ void Help (void)
 					{
 						if (InArea (460, 410, 460 + 85, 410 + 32) == 1) /*** OK ***/
 							{ iHelp = 0; }
-						if (InArea (55, 323, 55 + 443, 323 + 19) == 1) /*** URL ***/
-							{ OpenURL ("https://www.norbertdejonge.nl/lemsop/"); }
+						if (InArea (55, 323, 55 + 430, 323 + 17) == 1) /*** URL ***/
+							{ OpenURL ("https://github.com/EndeavourAccuracy/lemsop"); }
 					}
 					ShowHelp();
 					break;
@@ -6904,7 +6907,7 @@ void EXE (void)
 void ShowEXE (void)
 /*****************************************************************************/
 {
-	char arText[1 + 2][MAX_TEXT + 2];
+	char arText[9 + 2][MAX_TEXT + 2];
 	SDL_Texture *img;
 
 	/*** Used for looping. ***/
@@ -7107,7 +7110,11 @@ void CenterNumber (SDL_Renderer *screen, int iNumber, int iX, int iY,
 	} else {
 		snprintf (sText, MAX_TEXT, "%02X", iNumber);
 	}
-	message = TTF_RenderText_Blended_Wrapped (font20, sText, fore, 0);
+	/* The 100000 is a workaround for 0 being broken. SDL devs have fixed that
+	 * see e.g. https://hg.libsdl.org/SDL_ttf/rev/72b8861dbc01 but
+	 * Ubuntu et al. still ship older sdl2-ttf versions.
+	 */
+	message = TTF_RenderText_Blended_Wrapped (font20, sText, fore, 100000);
 	messaget = SDL_CreateTextureFromSurface (screen, message);
 	if (iHex == 0)
 	{
