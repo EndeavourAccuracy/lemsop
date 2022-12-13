@@ -1,0 +1,84 @@
+---------------------------------------------------------------------------
+MAIN SCREEN
+---------------------------------------------------------------------------
+0, 1, 9                              Shortcuts for various tiles.
+d                                    Start the level in Mednafen.
+e                                    Go to the elements screen.
+f (and Alt + Enter/Return/Space)     Toggle fullscreen mode.
+i                                    Toggle tile information.
+q (and Escape)                       Quit the application.
+r                                    Go to the room links screen.
+s                                    Save the level.
+z                                    Change the interface size.
+Enter (and Return and Space)         Go to the tiles screen.
+Left arrow                           Go to the tile to the left.
+Right arrow                          Go to the tile to the right.
+Up arrow                             Go to a higher tile.
+Down arrow                           Go to a lower tile.
+Shift + Left arrow                   Go to the room to the left.
+Shift + Right arrow                  Go to the room to the right.
+Shift + Up arrow                     Go to a higher room.
+Shift + Down arrow                   Go to a lower room.
+Shift + left mouse button            Re-use the last used tile.
+Shift + scroll wheel                 Scroll horizontally.
+- (and _)                            Go to the previous level.
++ (and =)                            Go to the next level.
+/ (and ?)                            Clear the entire room.
+\ (and |)                            Randomize the entire level.
+'                                    Re-use the last used tile.
+"                                    Sprinkle the level with dec.
+F1                                   Go to the help screen.
+F2                                   Go to the executable screen.
+Ctrl+c                               Copy the room.
+Ctrl+v                               Paste the room.
+
+---------------------------------------------------------------------------
+ROOM LINKS SCREEN
+---------------------------------------------------------------------------
+d                                    Start the level in Mednafen.
+e                                    Go to the elements screen.
+q (and Escape)                       Go to the main screen.
+r                                    Modify broken room links.
+s                                    Save the level.
+[                                    Select the previous room.
+]                                    Select the next room.
+Enter (and Return and Space)         Change the room location.
+Left arrow                           Move the cross to the left.
+Right arrow                          Move the cross to the right.
+Up arrow                             Move the cross up.
+Down arrow                           Move the cross down.
+- (and _)                            Go to the previous level.
++ (and =)                            Go to the next level.
+
+[BROKEN ROOM LINKS SCREEN]
+Enter (and Return and Space)         Increase adjacent room nr.
+Backspace                            Decrease adjacent room nr.
+Arrow keys                           Select adjacent room.
+
+---------------------------------------------------------------------------
+ELEMENTS SCREEN
+---------------------------------------------------------------------------
+d                                    Start the level in Mednafen.
+q (and Escape)                       Go to the main screen.
+r                                    Go to the room links screen.
+s                                    Save the level.
+Left arrow                           Decrease custom element.
+Right arrow                          Increase custom element.
+Shift + Left arrow                   Decrease element number by 1.
+Shift + Right arrow                  Increase element number by 1.
+Ctrl + Left arrow                    Decrease element number by 10.
+Ctrl + Right arrow                   Increase element number by 10.
+- (and _)                            Go to the previous level.
++ (and =)                            Go to the next level.
+
+---------------------------------------------------------------------------
+TILES SCREEN
+---------------------------------------------------------------------------
+q (and Escape and c)                 Go to the main screen.
+Enter (and Return and Space)         Use the selected tile.
+Shift + Enter (and Return and Space) Fill entire room with tile.
+Ctrl + Enter (and Return and Space)  Fill entire level with tile.
+Left arrow                           Go to the tile to the left.
+Right arrow                          Go to the tile to the right.
+Up arrow                             Go to a higher tile.
+Down arrow                           Go to a lower tile.

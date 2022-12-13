@@ -1,0 +1,11 @@
+# Executables.
+/lemsop
+/lemsop.exe
+
+# Created by IDE's.
+/lemsop.dev
+/lemsop.ico
+/lemsop.layout
+/lemsop.o
+/*private*
+/Makefile.win

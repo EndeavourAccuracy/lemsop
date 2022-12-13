@@ -1,0 +1,7 @@
+v0.8b (May 1, 2020) - Norbert de Jonge
+--------------------
+* Various bug fixes.
+
+v0.7a (October 17, 2019) - Norbert de Jonge
+--------------------
++ Initial release.
